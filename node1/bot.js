@@ -10,3 +10,38 @@ var T = new Twit(config);
 // stream() a continuous connection whenever something happens
 // assign certain types of events to a stream like @mention whenever
 // someone mentions me on twitter something will happen
+
+// getting JSON data from the twitter API and handling that data
+
+// var params = {
+// q: 'banana since:2011-07-11',
+// count: 100
+// };
+
+// T.get('search/tweets', params, gotData);
+
+
+// function gotData(err, data, response) {
+//   var tweets = data.statuses;
+//   for (var i = 0; i < tweets.length; i++)
+//   console.log(tweets[i].text);
+// };
+
+var params_post = {
+  status: 'I just posted this from a terminal!!'
+};
+
+T.post('statuses/update', params_post, postData);
+
+
+
+function postData(err, data, response) {
+  if(err) {
+    console.log("something went wrong!");
+    console.log(err);
+  } else {
+    console.log("It worked!");
+  }
+
+  console.log(data)
+};
