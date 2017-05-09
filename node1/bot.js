@@ -27,7 +27,7 @@ var T = new Twit(config);
 //   console.log(tweets[i].text);
 // };
 
-tweetIt();
+
 
 setInterval(tweetIt, 1000 * 20)
 
