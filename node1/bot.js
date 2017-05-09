@@ -26,9 +26,17 @@ var T = new Twit(config);
 //   for (var i = 0; i < tweets.length; i++)
 //   console.log(tweets[i].text);
 // };
+
+tweetIt();
+
+setInterval(tweetIt, 1000 * 20)
+
+
 function tweetIt() {
+
+    var r = Math.floor(Math.random()*100);
     var params_post = {
-      status: 'I just posted this from a terminal!!'
+      status: 'Posting from node.js, random# ' + r + ' '
     };
 
     T.post('statuses/update', params_post, postData);
@@ -44,3 +52,4 @@ function tweetIt() {
       console.log(data)
     };
   };
+
