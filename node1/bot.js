@@ -26,22 +26,21 @@ var T = new Twit(config);
 //   for (var i = 0; i < tweets.length; i++)
 //   console.log(tweets[i].text);
 // };
+function tweetIt() {
+    var params_post = {
+      status: 'I just posted this from a terminal!!'
+    };
 
-var params_post = {
-  status: 'I just posted this from a terminal!!'
-};
+    T.post('statuses/update', params_post, postData);
 
-T.post('statuses/update', params_post, postData);
+    function postData(err, data, response) {
+      if(err) {
+        console.log("something went wrong!");
+        console.log(err);
+      } else {
+        console.log("It worked!");
+      }
 
-
-
-function postData(err, data, response) {
-  if(err) {
-    console.log("something went wrong!");
-    console.log(err);
-  } else {
-    console.log("It worked!");
-  }
-
-  console.log(data)
-};
+      console.log(data)
+    };
+  };
