@@ -26,6 +26,27 @@ var T = new Twit(config);
 //   for (var i = 0; i < tweets.length; i++)
 //   console.log(tweets[i].text);
 // };
+// setting up a type of stream called a 'user stream'
+var stream = T.stream('user');
+// on function assigns a callback called followed for a particualarly event
+// in this case the event is "follow"
+stream.on('follow', followed);
+// anytime anyone ever follows me this code
+// will be executed this can take an argument
+function followed(eventMsg) {
+  var name = eventMsg.source.name;
+  var screenName = eventMsg.source.screen_name;
+  tweetIt();
+
+
+}
+
+
+
+
+
+
+
 
 tweetIt();
 
