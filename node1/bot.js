@@ -34,18 +34,13 @@ stream.on('follow', followed);
 // anytime anyone ever follows me this code
 // will be executed this can take an argument
 function followed(eventMsg) {
+  console.log("followed!")
   var name = eventMsg.source.name;
   var screenName = eventMsg.source.screen_name;
-  tweetIt();
+  tweetIt('@' + screenName + ' Thank you for following me!');
 
 
 }
-
-
-
-
-
-
 
 
 tweetIt();
@@ -53,10 +48,11 @@ tweetIt();
 setInterval(tweetIt, 1000 * 20)
 
 
-function tweetIt() {
+function tweetIt(txt) {
 
     var r = Math.floor(Math.random()*100);
     var params_post = {
+      // status: txt
       status: 'Posting from node.js, random# ' + r + ' '
     };
 
