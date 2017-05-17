@@ -11,3 +11,8 @@ How To:
 Set up a twitter account
 
 Download an API key
+
+Packages used:
+Twit framework for twitter
+
+This is a Javascript framework
