@@ -43,19 +43,21 @@ function followed(eventMsg) {
 }
 
 
-tweetIt();
+
+
+tweetIt('sup');
+
 
 setInterval(tweetIt, 1000 * 20)
 
 
 function tweetIt(txt) {
 
-    var r = Math.floor(Math.random()*100);
+    // var r = Math.floor(Math.random()*100);
     var params_post = {
-      // status: txt
-      status: 'Posting from node.js, random# ' + r + ' '
+      status: txt
+      // status: 'Posting from node.js, random# ' + r + ' '
     };
-
     T.post('statuses/update', params_post, postData);
 
     function postData(err, data, response) {
